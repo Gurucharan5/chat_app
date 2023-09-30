@@ -28,6 +28,11 @@ class Api::V1::UserController < ApplicationController
 
     def image 
         puts "-------------"+user_params["image"].to_s
+        # @profile = Profile.create(image: user_params["image"])
+        @profile = Profile.where(id: 8).first
+        puts "--------hhhghg-------"+@profile.image.to_s
+
+        render json: @profile.image, status: 200
     end
 
     private 

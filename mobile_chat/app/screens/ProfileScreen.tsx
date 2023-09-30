@@ -5,8 +5,26 @@ import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 
 export default function UploadImage() {
+  console.log("coming inside")
   const [image, setImage] = useState('');
+  const [pimage, setPimage] = useState('');
+  const getImage = async () =>{
+    console.log("------coming inside get image")
+    const result = await axios.post(
+      'http://localhost:3000/api/v1/users/image',
+      {
+        user: {
+            image,
+        },
+      }
+    );
+    console.log(result.data)
+    setPimage(result.data);
+  }
+  console.log(setPimage)
+  
   const addImage= async()=>{
+    console.log("coming inside add image")
     let _image = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
@@ -16,7 +34,6 @@ export default function UploadImage() {
     console.log(JSON.stringify(_image));
     if (!_image.canceled) {
         setImage(_image.assets[0].uri);
-        console.log(image)
         try {
             const response = await axios.post(
               'http://localhost:3000/api/v1/users/image',
@@ -26,7 +43,9 @@ export default function UploadImage() {
                 },
               }
             );
-      
+              
+              
+            
             
       
       
@@ -39,10 +58,13 @@ export default function UploadImage() {
           }
     }
   };
+  useEffect(()=> {
+    getImage();
+  },[])
   return (
             <View style={imageUploaderStyles.container}>
                 {
-                    image  && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+                    pimage  && <Image source={{ uri: pimage }} style={{ width: 200, height: 200 }} />
                 }
                     <View style={imageUploaderStyles.uploadBtnContainer}>
                         <TouchableOpacity onPress={addImage} style={imageUploaderStyles.uploadBtn} >
