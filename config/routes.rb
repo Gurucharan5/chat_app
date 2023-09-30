@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       #code here
+      post 'users/signup', to: 'user#create_user'
+      post 'users/image' , to: 'user#image'
     end
   end
 end
