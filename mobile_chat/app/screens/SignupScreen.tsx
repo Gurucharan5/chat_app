@@ -8,6 +8,7 @@ import LoginScreen from './LoginScreen';
 const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
   const handleSignup = async () => {
     if (!email) {
@@ -22,6 +23,7 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           user: {
             email,
             password,
+            username,
           },
         }
       );
@@ -58,12 +60,18 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   };
 
   const handleLogin =async () => {
-    navigation.navigate('Profile');
+    navigation.navigate('Login');
   }
 
   return (
     <View style = {styles.title}>
       <Text>Signup</Text>
+      <TextInput
+        style = {styles.input}
+        placeholder="UserName"
+        value={username}
+        onChangeText={(text) => setUsername(text)}
+      />
       <TextInput
         style = {styles.input}
         placeholder="Email"

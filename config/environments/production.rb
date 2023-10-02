@@ -57,6 +57,11 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+
+  # config/application.rb or config/environments/*.rb
+  config.session_store :cookie_store, key: '_chat_app_session'
+
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

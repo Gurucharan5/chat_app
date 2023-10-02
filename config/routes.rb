@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       #code here
       post 'users/signup', to: 'user#create_user'
-      post 'users/image' , to: 'user#image'
+      post 'users/login' , to: 'user#login'
+      post 'users/image' , to: 'profile#image'
+      post 'posts/create' , to: 'posts#create'
+      get 'posts/getpost' , to: 'posts#getpost'
+      post 'profile/getimage' , to: 'profile#getimage'
     end
   end
 end

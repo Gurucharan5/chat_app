@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet,Button } from 'react-native';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const LoginScreen: React.FC<{ navigation: any }>  = ({ navigation }) => { // Add navigation prop
   const [email, setEmail] = useState('');
@@ -19,8 +21,13 @@ const LoginScreen: React.FC<{ navigation: any }>  = ({ navigation }) => { // Add
         }
       );
 
+      const { token } = response.data;
+
+      // Store the token securely in AsyncStorage
+      await AsyncStorage.setItem('authToken', token);
+
       if (response.status == 200) {
-        navigation.navigate('Dashboard');
+        navigation.navigate('Profile');
       }
       else {
         window.alert('email or password is wrong')

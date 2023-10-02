@@ -84,6 +84,7 @@ GEM
     irb (1.8.1)
       rdoc
       reline (>= 0.3.8)
+    jwt (2.7.1)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -162,6 +163,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     zeitwerk (2.6.12)
+    zlib (3.0.0)
 
 PLATFORMS
   x86_64-linux
@@ -169,11 +171,13 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  jwt
   mysql2
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.8)
   tzinfo-data
+  zlib
 
 RUBY VERSION
    ruby 3.1.4p223
