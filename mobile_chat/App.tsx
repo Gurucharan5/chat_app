@@ -15,6 +15,8 @@ import { AuthContext, AuthProvider } from './app/components/AuthContext';
 import { useFocusEffect } from '@react-navigation/native';
 import PostScreen from './app/screens/PostScreen';
 import { useIsFocused } from '@react-navigation/native';
+import SplashScreen from './app/screens/SplashScreen';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -57,36 +59,15 @@ export default function App() {
   //   }, [])
   // );
   return (
-    
-    
+
       <NavigationContainer>
         <Stack.Navigator>
-        {authenticated ? (
-            <>
-              
-
-              
-              {/* <Stack.Screen name="Dashboard" component={DashboardScreen} /> */}
-              
-              {/* <Stack.Screen
-              name="Dashboard"
-              component={DashboardScreen}
-              options={{
-                headerRight: () => (
-                  <Button
-                    title="Logout"
-                    onPress={async () => {
-                      // Clear the token from AsyncStorage
-                      await AsyncStorage.removeItem('authToken');
-                      setAuthenticated(false);
-                      // Navigate to LoginScreen
-                     
-                    }}
-                  />
-                ),
-              }}
-            /> */}
-              <Stack.Screen
+          <Stack.Screen name="Splash" component={SplashScreen} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          {/* <Stack.Screen name="Dashboard" component={DashboardScreen} /> */}
+          <Stack.Screen name="Post" component={PostScreen} />
+          <Stack.Screen
                 name="Dashboard"
                 component={DashboardScreen}
                 options={({ navigation }) => ({
@@ -126,35 +107,109 @@ export default function App() {
                   headerTintColor: 'white', // Customize the text color in the header
                 })}
               />
-              <Stack.Screen name="Post" 
-              component={PostScreen} 
+        
+          <Stack.Screen name="Profile" component={ProfileScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    
+    
+      // <NavigationContainer>
+      //   <Stack.Navigator>
+      //   {authenticated ? (
+      //       <>
               
-              />
-              <Stack.Screen name="Profile" 
-              component={ProfileScreen} 
+
               
-              />
+      //         {/* <Stack.Screen name="Dashboard" component={DashboardScreen} /> */}
+              
+      //         {/* <Stack.Screen
+      //         name="Dashboard"
+      //         component={DashboardScreen}
+      //         options={{
+      //           headerRight: () => (
+      //             <Button
+      //               title="Logout"
+      //               onPress={async () => {
+      //                 // Clear the token from AsyncStorage
+      //                 await AsyncStorage.removeItem('authToken');
+      //                 setAuthenticated(false);
+      //                 // Navigate to LoginScreen
+                     
+      //               }}
+      //             />
+      //           ),
+      //         }}
+      //       /> */}
+      //         <Stack.Screen name='Splash' component={SplashScreen}/>
+              // <Stack.Screen
+              //   name="Dashboard"
+              //   component={DashboardScreen}
+              //   options={({ navigation }) => ({
+              //     title: 'Dashboard',
+              //     headerRight: () => (
+              //       <Button
+              //         title="Logout"
+              //         onPress={async () => {
+              //           // Clear the token from AsyncStorage
+              //           await AsyncStorage.removeItem('authToken');
+              //           // Navigate to LoginScreen
+              //           // await setAuthenticated(false);
+                        
+              //           const token = await AsyncStorage.getItem('authToken');
+              //           if (token) {
+              //             setAuthenticated(true);
+              //           } else {
+              //             await setAuthenticated(false);
+              //             navigation.navigate('Login');
+              //           }
+                        
+              //         }}
+              //       />
+              //     ),
+              //     headerLeft: () => (
+              //       <Button
+              //         title="Profile"
+              //         onPress={() => {
+              //           // Navigate to ProfileScreen
+              //           navigation.navigate('Profile');
+              //         }}
+              //       />
+              //     ),
+              //     headerStyle: {
+              //       backgroundColor: 'blue', // Customize the header background color
+              //     },
+              //     headerTintColor: 'white', // Customize the text color in the header
+              //   })}
+              // />
+      //         <Stack.Screen name="Post" 
+      //         component={PostScreen} 
+              
+      //         />
+      //         <Stack.Screen name="Profile" 
+      //         component={ProfileScreen} 
+              
+      //         />
 
               
               
               
-            </>
+      //       </>
             
-          ) : (
-            <>
-              <Stack.Screen name="Signup" component={SignupScreen} />
-              <Stack.Screen 
-              name="Login" 
-              component={LoginScreen} 
+      //     ) : (
+      //       <>
+      //         <Stack.Screen name="Signup" component={SignupScreen} />
+      //         <Stack.Screen 
+      //         name="Login" 
+      //         component={LoginScreen} 
               
-              />
+      //         />
               
               
-            </>
-          )}
+      //       </>
+      //     )}
           
-        </Stack.Navigator>
-      </NavigationContainer>
+      //   </Stack.Navigator>
+      // </NavigationContainer>
     
   );
 }

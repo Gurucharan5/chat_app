@@ -27,7 +27,7 @@ const LoginScreen: React.FC<{ navigation: any }>  = ({ navigation }) => { // Add
       await AsyncStorage.setItem('authToken', token);
 
       if (response.status == 200) {
-        navigation.navigate('Profile');
+        navigation.navigate('Dashboard');
       }
       else {
         window.alert('email or password is wrong')

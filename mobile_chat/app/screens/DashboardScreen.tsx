@@ -48,17 +48,23 @@ function DashboardScreen({navigation}:{navigation: any}) {
     },[isFocused])
     return (
         <View>
-        <Text>Welcome to the Home Screen!</Text>
-        <Button title="CreatePOst" onPress={createPost} />
-        <ScrollView>
-            <SafeAreaView>
-                {posts && posts.map((post: any) =>(
-                    <View key = {post.id}>
-                        <PageScreen content = {post.content} image={post.image} username={post.username}/>
-                    </View>
-                ))}
-            </SafeAreaView>
-        </ScrollView>
+            <View>
+                <Text>Welcome to the Home Screen!</Text>
+                <Button title="CreatePOst" onPress={createPost} />
+            </View>
+            <View>
+                <ScrollView>
+                    <SafeAreaView>
+                        {posts && posts.map((post: any) =>(
+                            <View key = {post.id}>
+                                <PageScreen content = {post.content} image={post.image} username={post.username}/>
+                            </View>
+                        ))}
+                    </SafeAreaView>
+                </ScrollView>
+            </View>
+        
+        
         </View>
     );
 }
