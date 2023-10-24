@@ -49,4 +49,16 @@ class Api::V1::ProfileController < ApplicationController
         end
 
     end
+
+    def doxapi
+        puts "coming inside dexcom api"
+        client_id = 'h63E3yBfYZz4CSyEDb32Da3TuwTdHh3H'
+        redirect_uri = 'https://dev.healthplotter.com/'
+        state = 'your_state_value'
+        scope = 'offline_access'
+
+        dexcom_login_url = "https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=#{client_id}&redirect_uri=#{redirect_uri}&response_type=code&scope=#{scope}&state=#{state}"
+
+        redirect_to dexcom_login_url
+    end
 end

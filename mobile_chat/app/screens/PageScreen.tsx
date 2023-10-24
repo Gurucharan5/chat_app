@@ -14,7 +14,7 @@ function PageScreen(props: BlogPostProps) {
             <Card.Content>
                 <Paragraph>{props.content}</Paragraph>
             </Card.Content>
-            <Card.Cover source={{ uri: "https://picsum.photos/700"}}/>
+            <Card.Cover source={{ uri: props.image}}/>
 
         </Card>
     );

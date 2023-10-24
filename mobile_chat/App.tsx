@@ -16,6 +16,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import PostScreen from './app/screens/PostScreen';
 import { useIsFocused } from '@react-navigation/native';
 import SplashScreen from './app/screens/SplashScreen';
+import ChatScreen from './app/screens/ChatScreen';
 
 
 
@@ -67,6 +68,7 @@ export default function App() {
           <Stack.Screen name="Login" component={LoginScreen} />
           {/* <Stack.Screen name="Dashboard" component={DashboardScreen} /> */}
           <Stack.Screen name="Post" component={PostScreen} />
+          <Stack.Screen name='Chat' component={ChatScreen} />
           <Stack.Screen
                 name="Dashboard"
                 component={DashboardScreen}

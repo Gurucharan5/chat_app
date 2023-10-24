@@ -35,6 +35,10 @@ function DashboardScreen({navigation}:{navigation: any}) {
         
       };
 
+    const getMessage = () => {
+        navigation.navigate('Chat');
+    }
+
  
     const [posts, setPosts] = useState([]);
     const isFocused = useIsFocused();
@@ -48,6 +52,9 @@ function DashboardScreen({navigation}:{navigation: any}) {
     },[isFocused])
     return (
         <View>
+            <View>
+                <Button title="Message" onPress={getMessage} />
+            </View>
             <View>
                 <Text>Welcome to the Home Screen!</Text>
                 <Button title="CreatePOst" onPress={createPost} />
